@@ -42,18 +42,47 @@ export class CelularesService {
       marca: celularDTO.marca,
       modelo: celularDTO.modelo,
       precio: celularDTO.precio,
+      stock: celularDTO.stock,
       color: color,
       categoria: categoria,
     });
   }
 
   async obtener(): Promise<Celular[]> {
-    return await this.celularRepository.find();
+    return await this.celularRepository
+      .createQueryBuilder('celular')
+      .leftJoinAndSelect('celular.categoria', 'categoria')
+      .leftJoinAndSelect('celular.color', 'color')
+      .select([
+        'celular.id as id',
+        'celular.descripcion as descipcion',
+        'celular.marca as marca',
+        'celular.modelo as modelo',
+        'celular.nombre as nombre',
+        'celular.precio as precio',
+        'celular.stock as stock',
+        'categoria.nombre as categoria',
+        'color.nombre as color',
+      ])
+      .getRawMany();
   }
   async obtenrCelularID(idCelu: number) {
-    return await this.celularRepository.findOneBy({
-      id: idCelu,
-    });
+    return await this.celularRepository
+      .createQueryBuilder('celular')
+      .leftJoinAndSelect('celular.categoria', 'categoria')
+      .leftJoinAndSelect('celular.color', 'color')
+      .select([
+        'celular.descripcion as descripcion',
+        'celular.marca as marca',
+        'celular.modelo as modelo',
+        'celular.nombre as nombre',
+        'celular.precio as precio',
+        'celular.stock as stock',
+        'categoria.id as categoria',
+        'color.id as color',
+      ])
+      .where('celular.id = :id', { id: idCelu })
+      .getRawOne();
   }
 
   async actualizar(id: number, updateCelularDTO: UpdateCelularDTO) {
@@ -70,6 +99,7 @@ export class CelularesService {
       marca: updateCelularDTO.marca,
       modelo: updateCelularDTO.modelo,
       precio: updateCelularDTO.precio,
+      stock: updateCelularDTO.stock,
       color: color,
       categoria: categoria,
     });

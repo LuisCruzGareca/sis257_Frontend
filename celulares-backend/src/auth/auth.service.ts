@@ -23,12 +23,8 @@ export class AuthService {
     //si no existe el usuario devolvemos una excepcion
     if (!user) throw new ForbiddenException('credenciales incorrectas');
 
-    const md5Password = createHash('md5')
-      .update(loginDto.password)
-      .digest('hex');
-
     //si el password es incorrecto devolvemos una excepcion
-    if (user.password != md5Password)
+    if (user.password != loginDto.password)
       throw new ForbiddenException('credenciales incorrectas');
 
     return this.signToken(user.id, user.email);
