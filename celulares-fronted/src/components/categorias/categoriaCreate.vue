@@ -12,9 +12,16 @@ const descripcion = ref('')
 const nombre = ref('')
 
 async function crearCategoria() {
-  await http
-    .post(ENDPOINT, { descripcion: descripcion.value, nombre: nombre.value })
-    .then(() => router.push('/categorias'))
+  try {
+    const response = await http
+      .post(ENDPOINT, { descripcion: descripcion.value, nombre: nombre.value })
+      .then(() => router.push('/categorias'))
+  } catch (error: any) {
+    if (error.response && error.response.data && error.response.data.message) {
+      const validationErrors = error.response.data.message
+      alert(validationErrors.join('\n'))
+    }
+  }
 }
 
 function goBack() {
