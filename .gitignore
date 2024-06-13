@@ -1,0 +1,58 @@
+# compiled output
+/celulares_backend/dist
+/celulares_backend/node_modules
+/celulares_backend/build
+
+# Logs
+/celulares_backend/logs
+/celulares_backend/*.log
+/celulares_backend/npm-debug.log*
+/celulares_backend/pnpm-debug.log*
+/celulares_backend/yarn-debug.log*
+/celulares_backend/yarn-error.log*
+/celulares_backend/lerna-debug.log*
+
+# OS
+/celulares_backend/.DS_Store
+
+# Tests
+/celulares_backend/coverage
+/celulares_backend/.nyc_output
+# IDEs and editors
+/celulares_backend/.idea
+/celulares_backend/.project
+/celulares_backend/.classpath
+/celulares_backend/.c9/
+/celulares_backend/*.launch
+/celulares_backend/.settings/
+/celulares_backend/*.sublime-workspace
+
+# IDE - VSCode
+/celulares_backend/.vscode/*
+/celulares_backend/!.vscode/settings.json
+/celulares_backend/!.vscode/tasks.json
+/celulares_backend/!.vscode/launch.json
+/celulares_backend/!.vscode/extensions.json
+
+# dotenv environment variable files
+/celulares_backend/.env
+/celulares_backend/.env.development.local
+/celulares_backend/.env.test.local
+/celulares_backend/.env.production.local
+/celulares_backend/.env.local
+
+# temp directory
+/celulares_backend/.temp
+/celulares_backend/.tmp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+/celulares_backend/pasos.txt
+apuntos.txt
