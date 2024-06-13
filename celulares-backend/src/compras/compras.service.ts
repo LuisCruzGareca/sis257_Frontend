@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Compra } from './entities/compra.entity';
@@ -21,11 +21,36 @@ export class ComprasService {
       id: createCompraDto.idCelular,
     });
 
+    if (celular.stock == 0) {
+      return {
+        message: `No hay mas stock para el celular ${celular.nombre}`,
+      };
+    }
+
+    await this.celularRepository.update(createCompraDto.idCelular, {
+      stock: celular.stock - 1,
+    });
+
     //INSERTAR LA COMPRA
     await this.compraRepository.save({
       direccionEnvio: createCompraDto.direccionEnvio,
       total: celular.precio,
       usuario: usuario,
+      celular: celular,
     });
+  }
+
+  async obtener() {
+    return await this.compraRepository
+      .createQueryBuilder('compra')
+      .innerJoinAndSelect('compra.usuario', 'usuario')
+      .innerJoinAndSelect('compra.celular', 'celular')
+      .select([
+        'compra.direccionEnvio AS direccionEnvio',
+        'compra.total AS total',
+        'usuario.email AS usuario',
+        'celular.nombre AS celular',
+      ])
+      .getRawMany();
   }
 }

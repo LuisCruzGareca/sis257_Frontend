@@ -1,10 +1,12 @@
 import { Categoria } from 'src/categorias/entities/categoria.entity';
 import { Color } from 'src/colores/entities/color.entity';
+import { Compra } from 'src/compras/entities/compra.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -43,4 +45,7 @@ export class Celular {
 
   @ManyToOne(() => Categoria, (categoria) => categoria.celulares)
   categoria: Categoria;
+
+  @OneToMany(() => Compra, (compra) => compra.celular) // Relación One-to-Many con Compra
+  compras: Compra[];
 }

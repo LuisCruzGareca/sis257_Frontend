@@ -1,10 +1,3 @@
-<script setup lang="ts">
-import { router } from '@/router/router'
-if (!localStorage.getItem('token')) {
-  router.push('/')
-}
-</script>
-
 <template>
   <div class="about">
     <h1>This is an about page</h1>

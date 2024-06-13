@@ -32,18 +32,27 @@ async function getCategorias() {
 }
 
 async function crearCelular() {
-  await http
-    .post(ENDPOINT, {
-      nombre: nombre.value,
-      descripcion: descripcion.value,
-      marca: marca.value,
-      modelo: modelo.value,
-      precio: parseFloat(precio.value),
-      stock: parseInt(stock.value),
-      categoria: parseInt(categoria.value),
-      color: parseInt(color.value)
-    })
-    .then(() => router.push('/celulares'))
+  try {
+    const response = await http
+      .post(ENDPOINT, {
+        nombre: nombre.value,
+        descripcion: descripcion.value,
+        marca: marca.value,
+        modelo: modelo.value,
+        precio: parseFloat(precio.value),
+        stock: parseInt(stock.value),
+        categoria: parseInt(categoria.value),
+        color: parseInt(color.value)
+      })
+      .then(() => router.push('/celulares'))
+  } catch (error: any) {
+    if (error.response && error.response.data && error.response.data.message) {
+      const validationErrors = error.response.data.message
+      // Mostrar los errores de validación al usuario, por ejemplo, en una alerta o en el formulario
+      alert(validationErrors.join('\n'))
+    }
+  }
+  //.then(() => router.push('/celulares'))
 }
 
 function goBack() {

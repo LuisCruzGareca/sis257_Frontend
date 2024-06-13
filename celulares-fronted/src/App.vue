@@ -1,11 +1,5 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { router } from './router/router'
-
-//miro si la clave token existe en el local storage y si no existe obligo al usuario a logearse
-if (!localStorage.getItem('token')) {
-  router.push('/')
-}
 </script>
 
 <template>

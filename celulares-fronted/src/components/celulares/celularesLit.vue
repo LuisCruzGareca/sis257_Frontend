@@ -26,6 +26,10 @@ async function toDelete(id: number) {
   }
 }
 
+function toComprar(idCelu: number) {
+  router.push(`/compras/crear/${idCelu}`)
+}
+
 onMounted(() => {
   getCelulares()
 })
@@ -83,6 +87,10 @@ onMounted(() => {
               ><br />
               <button class="btn btn-link" @click="toDelete(celular.id)">
                 Eliminar
+                <font-awesome-icon icon="fa-solid fa-trash" />
+              </button>
+              <button class="btn btn-link" @click="toComprar(celular.id)">
+                Comprar
                 <font-awesome-icon icon="fa-solid fa-trash" />
               </button>
             </td>

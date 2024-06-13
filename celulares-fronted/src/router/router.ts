@@ -1,3 +1,5 @@
+import { getTokenFromLocalStorage } from '@/helpers'
+import { useAuthStore } from '@/stores'
 import { createRouter, createWebHistory } from 'vue-router'
 
 export const router = createRouter({
@@ -46,7 +48,7 @@ export const router = createRouter({
       children: [
         { path: '', component: () => import('../components/categorias/categoriaList.vue') },
         {
-          path: '/categoria/crear',
+          path: 'crear',
           component: () => import('../components/categorias/categoriaCreate.vue')
         },
         {
@@ -62,7 +64,11 @@ export const router = createRouter({
       name: 'compras',
       component: () => import('../views/comprasView.vue'),
       children: [
-        { path: '', component: () => import('../components/compras/comprasList.vue') }
+        { path: '', component: () => import('../components/compras/comprasList.vue') },
+        {
+          path: 'crear/:idCelu',
+          component: () => import('../components/compras/comprasCreate.vue')
+        }
         //{
         //  path: '/categoria/crear',
         // component: () => import('../components/categorias/categoriaCreate.vue')
@@ -83,4 +89,10 @@ export const router = createRouter({
       component: () => import('../views/AboutView.vue')
     }
   ]
+})
+
+router.beforeEach(async (to) => {
+  if (to.path != '/' && !getTokenFromLocalStorage()) {
+    return '/'
+  }
 })

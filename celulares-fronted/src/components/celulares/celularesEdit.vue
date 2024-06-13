@@ -22,18 +22,26 @@ const id = router.currentRoute.value.params['id']
 let celularColor: number
 
 async function editarCelulares() {
-  await http
-    .patch(`${ENDPOINT}/${id}`, {
-      nombre: nombre.value,
-      descripcion: descripcion.value,
-      marca: marca.value,
-      modelo: modelo.value,
-      precio: parseFloat(precio.value),
-      stock: parseInt(stock.value),
-      categoria: parseInt(categoria.value),
-      color: parseInt(color.value)
-    })
-    .then(() => router.push('/celulares'))
+  try {
+    const response = await http
+      .patch(`${ENDPOINT}/${id}`, {
+        nombre: nombre.value,
+        descripcion: descripcion.value,
+        marca: marca.value,
+        modelo: modelo.value,
+        precio: parseFloat(precio.value),
+        stock: parseInt(stock.value),
+        categoria: parseInt(categoria.value),
+        color: parseInt(color.value)
+      })
+      .then(() => router.push('/celulares'))
+  } catch (error: any) {
+    if (error.response && error.response.data && error.response.data.message) {
+      const validationErrors = error.response.data.message
+      // Mostrar los errores de validación al usuario, por ejemplo, en una alerta o en el formulario
+      alert(validationErrors.join('\n'))
+    }
+  }
 }
 
 async function getCelular() {

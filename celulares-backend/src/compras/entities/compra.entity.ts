@@ -1,3 +1,4 @@
+import { Celular } from 'src/celulares/entities/celular.entity';
 import { Usuario } from 'src/usuarios/entities/usuario.entity';
 import {
   Column,
@@ -25,4 +26,8 @@ export class Compra {
   @ManyToOne(() => Usuario)
   @JoinColumn({ name: 'id_usuario', referencedColumnName: 'id' })
   usuario: Usuario;
+
+  @ManyToOne(() => Celular, (celular) => celular.compras)
+  @JoinColumn({ name: 'id_celular', referencedColumnName: 'id' })
+  celular: Celular;
 }

@@ -55,7 +55,7 @@ export class CelularesService {
       .leftJoinAndSelect('celular.color', 'color')
       .select([
         'celular.id as id',
-        'celular.descripcion as descipcion',
+        'celular.descripcion as descripcion',
         'celular.marca as marca',
         'celular.modelo as modelo',
         'celular.nombre as nombre',
