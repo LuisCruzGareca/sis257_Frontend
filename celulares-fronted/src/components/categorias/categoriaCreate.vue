@@ -12,16 +12,9 @@ const descripcion = ref('')
 const nombre = ref('')
 
 async function crearCategoria() {
-  try {
-    const response = await http
-      .post(ENDPOINT, { descripcion: descripcion.value, nombre: nombre.value })
-      .then(() => router.push('/categorias'))
-  } catch (error: any) {
-    if (error.response && error.response.data && error.response.data.message) {
-      const validationErrors = error.response.data.message
-      alert(validationErrors.join('\n'))
-    }
-  }
+  await http
+    .post(ENDPOINT, { descripcion: descripcion.value, nombre: nombre.value })
+    .then(() => router.push('/categorias'))
 }
 
 function goBack() {
@@ -49,13 +42,13 @@ function goBack() {
       <form @submit.prevent="crearCategoria">
         <div class="form-floating mb-3">
           <input
-            type="descripcion"
+            type="txt"
             class="form-control"
             v-model="descripcion"
-            placeholder="descripcion"
+            placeholder="Descripcion"
             required
           />
-          <label for="descripcion">descripcion</label>
+          <label for="descripcion">Descripcion</label>
         </div>
         <div class="form-floating">
           <input

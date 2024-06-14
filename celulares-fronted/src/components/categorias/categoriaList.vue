@@ -43,7 +43,7 @@ onMounted(() => {
     <div class="row">
       <h2>Lista de categoria</h2>
       <div class="col-12">
-        <RouterLink to="/categoria/crear"
+        <RouterLink to="/categorias/crear"
           ><font-awesome-icon icon="fa-solid fa-plus" /> Crear Nuevo</RouterLink
         >
       </div>
