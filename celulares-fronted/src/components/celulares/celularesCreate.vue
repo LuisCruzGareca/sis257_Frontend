@@ -150,14 +150,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.table-container {
-  background: #7dbcc9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}
-
 .form-floating label {
   color: #7dbcc9;
 }

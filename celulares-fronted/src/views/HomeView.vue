@@ -78,63 +78,7 @@ import video from '@/assets/video/1.mp4'
             <img :src="image2" alt="Descripción de la imagen" class="custom-image img-fluid" />
             <div class="card-detail">
               <h3 class="product">
-                <a href="#" style="color: #7dbcc9">iPhone 10</a>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-          <div class="image-wrap">
-            <img :src="image3" alt="Descripción de la imagen" class="custom-image img-fluid" />
-            <div class="card-detail">
-              <h3 class="product">
-                <a href="#" style="color: #7dbcc9">iPhone 11</a>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-          <div class="image-wrap">
-            <img :src="image4" alt="Descripción de la imagen" class="custom-image img-fluid" />
-            <div class="card-detail">
-              <h3 class="product">
-                <a href="#" style="color: #7dbcc9">iPhone 12</a>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-          <div class="image-wrap">
-            <img :src="image5" alt="Descripción de la imagen" class="custom-image img-fluid" />
-            <div class="card-detail">
-              <h3 class="product">
-                <a href="#" style="color: #7dbcc9">iPhone 13</a>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-          <div class="image-wrap">
-            <img :src="image6" alt="Descripción de la imagen" class="custom-image img-fluid" />
-            <div class="card-detail">
-              <h3 class="product">
-                <a href="#" style="color: #7dbcc9">iPhone 14</a>
-              </h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="hero-section1" id="section_2">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-          <div class="image-wrap">
-            <img :src="image2" alt="Descripción de la imagen" class="custom-image img-fluid" />
-            <div class="card-detail">
-              <h3 class="product">
-                <a href="#" style="color: #7dbcc9">iPhone 10</a>
+                <RouterLink to="/compras/crear/21" style="color: #7dbcc9">iPhone 10</RouterLink>
               </h3>
             </div>
           </div>
@@ -285,13 +229,12 @@ import video from '@/assets/video/1.mp4'
               aria-labelledby="nav-ContactMap-tab"
             >
               <iframe
-                class="google-map"
-                src="@/assets/https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29974.469402870927!2d120.94861466021855!3d14.106066818082482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd777b1ab54c8f%3A0x6ecc514451ce2be8!2sTagaytay%2C%20Cavite%2C%20Philippines!5e1!3m2!1sen!2smy!4v1670344209509!5m2!1sen!2smy"
-                width="100%"
+                width="1024"
                 height="450"
+                frameborder="0"
                 style="border: 0"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59597.5277933748!2d-65.26374059999999!3d-19.03351675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x917a4bb1f072e0bd%3A0x439a3c647b57d809!2sSucre%2C%20Bolivia!5e0!3m2!1sen!2sus!4v1624697571655!5m2!1sen!2sus"
+                allowfullscreen
               >
               </iframe>
               <!-- You can easily copy the embed code from Google Maps -> Share -> Embed a map // -->

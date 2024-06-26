@@ -41,7 +41,7 @@ onMounted(() => {
     </nav>
 
     <div class="d-flex justify-content-between align-items-center mb-3">
-      <h2 style="background-color: #7dbcc9; color: white">Lista de Colores</h2>
+      <h2>Lista de Colores</h2>
       <RouterLink to="/colores/crear" class="btn btn-primary">
         <i class="fas fa-plus"></i> Crear Nuevo
       </RouterLink>
@@ -83,22 +83,8 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.table-container {
-  background: #7dbcc9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  margin-block: 18px;
-}
-
 .table {
   margin-bottom: 0;
-}
-
-.thead-light th {
-  background-color: #7dbcc9;
-  color: white;
 }
 
 .table-hover tbody tr:hover {

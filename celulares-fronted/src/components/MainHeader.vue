@@ -21,7 +21,7 @@ const location = useRoute()
 
   <nav
     class="navbar navbar-expand-lg"
-    :style="'background-color: ' + (location.path != '/' ? '#7dbcc9' : '')"
+    :style="'background-color: ' + (location.path != '/' ? 'rgba(25, 46, 61, 0.9)' : '')"
   >
     <div class="container">
       <RouterLink to="/" class="navbar-brand">Celulares Apple</RouterLink>
