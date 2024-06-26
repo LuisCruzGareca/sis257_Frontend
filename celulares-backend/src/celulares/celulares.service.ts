@@ -80,6 +80,8 @@ export class CelularesService {
         'celular.stock as stock',
         'categoria.id as categoria',
         'color.id as color',
+        'categoria.nombre as nombreCategoria',
+        'color.nombre as nombreColor',
       ])
       .where('celular.id = :id', { id: idCelu })
       .getRawOne();

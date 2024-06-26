@@ -14,7 +14,7 @@ export class Compra {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('text', { name: 'direccion_envio' })
+  @Column('text', { name: 'direccion_envio', nullable: false })
   direccionEnvio: string;
 
   @Column('decimal', { precision: 10, scale: 2, nullable: false })
@@ -22,6 +22,12 @@ export class Compra {
 
   @CreateDateColumn({ name: 'fecha_venta' })
   fechaVenta: Date;
+
+  @Column('int', { name: 'cantidad', nullable: false })
+  cantidad: number;
+
+  @Column('text', { name: 'metodo_pago', nullable: false })
+  metodoPago: string;
 
   @ManyToOne(() => Usuario)
   @JoinColumn({ name: 'id_usuario', referencedColumnName: 'id' })

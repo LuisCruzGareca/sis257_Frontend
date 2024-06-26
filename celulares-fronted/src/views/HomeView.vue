@@ -1,4 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import image2 from '@/assets/images/2.jpg'
+import image3 from '@/assets/images/3.jpg'
+import image4 from '@/assets/images/4.jpg'
+import image5 from '@/assets/images/5.jpg'
+import image6 from '@/assets/images/6.jpg'
+import video from '@/assets/video/1.mp4'
+</script>
 
 <template>
   <section class="hero-section" id="section_1">
@@ -8,9 +15,7 @@
       <div class="row">
         <div class="col-12 mt-auto mb-5 text-center">
           <small>Bienvenido a</small>
-
           <h1 class="text-white mb-5">Tienda de Celulares Apple</h1>
-
           <a class="btn custom-btn smoothscroll" href="#section_2">Explorar ahora</a>
         </div>
 
@@ -32,19 +37,16 @@
           <div class="social-share">
             <ul class="social-icon d-flex align-items-center justify-content-center">
               <span class="text-white me-3">Share:</span>
-
               <li class="social-icon-item">
                 <a href="#" class="social-icon-link">
                   <span class="bi-facebook"></span>
                 </a>
               </li>
-
               <li class="social-icon-item">
                 <a href="#" class="social-icon-link">
                   <span class="bi-twitter"></span>
                 </a>
               </li>
-
               <li class="social-icon-item">
                 <a href="#" class="social-icon-link">
                   <span class="bi-instagram"></span>
@@ -57,9 +59,8 @@
     </div>
 
     <div class="video-wrap">
-      <video autoplay="true" loop="true" muted="false" class="custom-video" poster="">
-        <source src="@/assets/video/1.mp4" type="video/mp4" />
-
+      <video autoplay loop muted class="custom-video" poster="">
+        <source :src="video" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
@@ -68,141 +69,125 @@
   <div class="letra">
     <h2>CELULARES</h2>
   </div>
-  <section class="hero-section1" id="section_1">
-    <div class="image-wrap">
-      <img src="@/assets/images/4.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
 
-    <div class="image-wrap">
-      <img src="@/assets/images/5.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-
-    <div class="image-wrap">
-      <img src="@/assets/images/7.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-
-    <div class="image-wrap">
-      <img src="@/assets/images/8.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-    <div class="image-wrap">
-      <img src="@/assets/images/8.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero-section2" id="section_1">
-    <div class="image-wrap">
-      <img src="@/assets/images/4.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-
-    <div class="image-wrap">
-      <img src="@/assets/images/5.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-
-    <div class="image-wrap">
-      <img src="@/assets/images/7.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-
-    <div class="image-wrap">
-      <img src="@/assets/images/8.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-    <div class="image-wrap">
-      <img src="@/assets/images/8.jpg" alt="Description of the image" class="custom-image" />
-      <div class="card-detail">
-        <h3 class="product">
-          <a href="#" style="color: #7dbcc9">Iphone 10</a>
-        </h3>
-      </div>
-    </div>
-  </section>
-
-  <!-- <section class="product-container">
+  <section class="hero-section1" id="section_2">
     <div class="container">
-      <div class="row">
-        <div class="col-12 text-center mb-5">
-          <h2 class="text-dark mb-4">Nuestros Productos</h2>
-          <p class="text-dark">Descubre nuestra selección de productos</p>
-        </div>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="product-item">
-            <img src="/images/4.jpg" alt="Product 1" class="img-fluid" />
-            <div class="product-info">
-              <h3 class="text-dark">Producto 1</h3>
-              <p class="text-dark">Descripción del producto 1.</p>
+      <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image2" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 10</a>
+              </h3>
             </div>
           </div>
         </div>
-
-    
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="product-item">
-            <img src="/images/product-item2.jpg" alt="Product 2" class="img-fluid" />
-            <div class="product-info">
-              <h3 class="text-dark">Producto 2</h3>
-              <p class="text-dark">Descripción del producto 2.</p>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image3" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 11</a>
+              </h3>
             </div>
           </div>
         </div>
-
-
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image4" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 12</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image5" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 13</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image6" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 14</a>
+              </h3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section> -->
+  </section>
+  <section class="hero-section1" id="section_2">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image2" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 10</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image3" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 11</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image4" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 12</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image5" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 13</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="image-wrap">
+            <img :src="image6" alt="Descripción de la imagen" class="custom-image img-fluid" />
+            <div class="card-detail">
+              <h3 class="product">
+                <a href="#" style="color: #7dbcc9">iPhone 14</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="contact-section section-padding" id="section_6">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-12 mx-auto">
           <h2 class="text-center mb-4">Interested? Let's talk</h2>
-
           <nav class="d-flex justify-content-center">
             <div
               class="nav nav-tabs align-items-baseline justify-content-center"
@@ -221,7 +206,6 @@
               >
                 <h5>Contact Form</h5>
               </button>
-
               <button
                 class="nav-link"
                 id="nav-ContactMap-tab"
@@ -236,7 +220,6 @@
               </button>
             </div>
           </nav>
-
           <div class="tab-content shadow-lg mt-5" id="nav-tabContent">
             <div
               class="tab-pane fade show active"
@@ -262,7 +245,6 @@
                         required
                       />
                     </div>
-
                     <div class="col-lg-6 col-md-6 col-12">
                       <input
                         type="email"
@@ -275,7 +257,6 @@
                       />
                     </div>
                   </div>
-
                   <input
                     type="text"
                     name="contact-company"
@@ -284,7 +265,6 @@
                     placeholder="Company"
                     required
                   />
-
                   <textarea
                     name="contact-message"
                     rows="3"
@@ -292,14 +272,12 @@
                     id="contact-message"
                     placeholder="Message"
                   ></textarea>
-
                   <div class="col-lg-4 col-md-10 col-8 mx-auto">
                     <button type="submit" class="form-control">Send message</button>
                   </div>
                 </div>
               </form>
             </div>
-
             <div
               class="tab-pane fade"
               id="nav-ContactMap"
@@ -314,7 +292,8 @@
                 style="border: 0"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              >
+              </iframe>
               <!-- You can easily copy the embed code from Google Maps -> Share -> Embed a map // -->
             </div>
           </div>
@@ -325,41 +304,38 @@
 </template>
 
 <style scoped>
-.product-item {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+/* Estilos para imágenes */
+.image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.product-item:hover {
+.image-wrap:hover {
   transform: translateY(-5px);
 }
 
-.product-info {
-  text-align: center;
+.custom-image {
+  width: 100%; /* Ajustar el ancho de la imagen */
+  height: auto; /* Mantener la proporción */
 }
 
-.product-info h3 {
-  margin-top: 10px;
+/* Estilos adicionales según sea necesario */
+@media (max-width: 576px) {
+  .hero-section1 .container {
+    padding: 0 15px; /* Ajustar el padding para dispositivos pequeños */
+  }
 }
-
-.product-info p {
-  font-size: 14px;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 90%;
+  }
 }
 </style>

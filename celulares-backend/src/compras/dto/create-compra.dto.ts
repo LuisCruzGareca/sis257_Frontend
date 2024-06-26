@@ -1,18 +1,20 @@
-import { IsNotEmpty, IsString, MaxLength } from 'class-validator';
+import { IsNotEmpty, IsString, MaxLength, Min } from 'class-validator';
 
 export class CreateCompraDto {
-  //campos a crear
-  /*
-    id celular
-    direccion de envio
-
-*/
-  @IsNotEmpty({ message: 'El campo ID no debe ser vacío' })
+  @IsNotEmpty({ message: 'El campo direccion de envio no debe ser vacío' })
   readonly idCelular: number;
-  @IsNotEmpty({ message: 'El campo ID no debe ser vacío' })
-  @IsString({ message: 'El campo ID debe ser de tipo cadena' })
+  @IsNotEmpty({ message: 'El campo direccion de envio no debe ser vacío' })
+  @IsString({ message: 'El campo direccion de envio debe ser de tipo cadena' })
   @MaxLength(100, {
-    message: 'El campo ID no debe ser mayor a 45 caracteres',
+    message: 'El campo direccion de envio no debe ser mayor a 45 caracteres',
   })
   readonly direccionEnvio: string;
+
+  @IsNotEmpty({ message: 'El campo cantidad no debe ser vacío' })
+  @Min(1, { message: 'El campo cantidad debe ser mayor que 0' })
+  readonly cantidad: number;
+
+  @IsNotEmpty({ message: 'El campo metodo de pago no debe ser vacío' })
+  @IsString({ message: 'El campo metodo de pago debe ser de tipo cadena' })
+  readonly metodoPago: string;
 }

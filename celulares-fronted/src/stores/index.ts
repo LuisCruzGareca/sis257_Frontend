@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 import http from '@/plugins/axios'
 import { router } from '@/router/router'
-import { getTokenFromLocalStorage } from '@/assets/helpers'
+import { getTokenFromLocalStorage } from '@/helpers/index'
 
 const useAuthStore = defineStore('auth', {
   state: () => ({

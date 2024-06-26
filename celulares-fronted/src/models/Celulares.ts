@@ -7,5 +7,7 @@ export interface Celulares {
   precio: number
   stock: number
   color: string
+  colorNombre: string
   categoria: string
+  categoriaNombre: string
 }

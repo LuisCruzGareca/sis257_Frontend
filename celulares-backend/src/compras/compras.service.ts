@@ -21,22 +21,24 @@ export class ComprasService {
       id: createCompraDto.idCelular,
     });
 
-    if (celular.stock == 0) {
+    if (celular.stock == 0 || celular.stock - createCompraDto.cantidad < 0) {
       return {
         message: `No hay mas stock para el celular ${celular.nombre}`,
       };
     }
 
     await this.celularRepository.update(createCompraDto.idCelular, {
-      stock: celular.stock - 1,
+      stock: celular.stock - createCompraDto.cantidad,
     });
 
     //INSERTAR LA COMPRA
     await this.compraRepository.save({
       direccionEnvio: createCompraDto.direccionEnvio,
-      total: celular.precio,
+      total: celular.precio * createCompraDto.cantidad,
       usuario: usuario,
       celular: celular,
+      cantidad: createCompraDto.cantidad,
+      metodoPago: createCompraDto.metodoPago,
     });
   }
 
@@ -48,6 +50,8 @@ export class ComprasService {
       .select([
         'compra.direccionEnvio AS direccionEnvio',
         'compra.total AS total',
+        'compra.cantidad AS cantidad',
+        'compra.metodoPago AS metodoPago',
         'usuario.email AS usuario',
         'celular.nombre AS celular',
       ])

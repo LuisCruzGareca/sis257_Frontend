@@ -8,9 +8,9 @@ export const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: import('../views/HomeView.vue')
+      component: () => import('../views/HomeView.vue')
     },
-    { path: '/', name: 'home', component: import('../views/LoginView.vue') },
+    { path: '/login', name: 'login', component: () => import('../views/LoginView.vue') },
 
     {
       path: '/usuarios',
@@ -94,7 +94,7 @@ export const router = createRouter({
 })
 
 router.beforeEach(async (to) => {
-  if (to.path != '/' && !getTokenFromLocalStorage()) {
+  if (to.path != '/' && to.path != '/login' && !getTokenFromLocalStorage()) {
     return '/'
   }
 })

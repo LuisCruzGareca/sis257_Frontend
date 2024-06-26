@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/index'
+import { getTokenFromLocalStorage } from '@/helpers/index'
+import { router } from '@/router/router'
 
 const usuario = ref('')
 const clave = ref('')
 const error = ref(false)
+console.log(getTokenFromLocalStorage())
+if (getTokenFromLocalStorage() != null) {
+  router.push('/')
+}
 
 function onSubmit() {
   const authStore = useAuthStore()

@@ -4,4 +4,6 @@ export interface Compras {
   total: number
   usuario: string
   celular: string
+  cantidad: number
+  metodoPago: string
 }

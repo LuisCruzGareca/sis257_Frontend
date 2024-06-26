@@ -36,15 +36,14 @@ onMounted(() => {
     <div class="table-container">
       <div class="table-responsive">
         <table class="table table-striped table-hover">
-          <caption>
-            Lista de Compras
-          </caption>
           <thead class="thead-light">
             <tr>
               <th scope="col">N°</th>
               <th scope="col">Usuario</th>
               <th scope="col">Celular</th>
               <th scope="col">Dirección Envío</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Metodo de pago</th>
               <th scope="col">Total</th>
             </tr>
           </thead>
@@ -54,6 +53,8 @@ onMounted(() => {
               <td>{{ compras.usuario }}</td>
               <td>{{ compras.celular }}</td>
               <td>{{ compras.direccionEnvio }}</td>
+              <td>{{ compras.cantidad }}</td>
+              <td>{{ compras.metodoPago }}</td>
               <td>{{ compras.total }} bs</td>
             </tr>
           </tbody>
