@@ -9,7 +9,7 @@ const props = defineProps<{
 }>()
 
 const ENDPOINT = props.ENDPOINT_API ?? ''
-var compra = ref<Compras[]>([])
+const compra = ref<Compras[]>([])
 
 async function getCompras() {
   compra.value = await http.get(ENDPOINT).then((response) => response.data)
@@ -21,7 +21,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
@@ -29,33 +29,68 @@ onMounted(() => {
       </ol>
     </nav>
 
-    <div class="row">
-      <h2>Lista de Compras</h2>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 style="background-color: #7dbcc9; color: white">Lista de Compras</h2>
     </div>
 
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">N°</th>
-            <th scope="col">Usuario</th>
-            <th scope="col">Celular</th>
-            <th scope="col">Direccion Envio</th>
-            <th scope="col">total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(compras, index) in compra.values()" :key="index">
-            <th scope="row">{{ index + 1 }}</th>
-            <td>{{ compras.usuario }}</td>
-            <td>{{ compras.celular }}</td>
-            <td>{{ compras.direccionEnvio }}</td>
-            <td>{{ compras.total }} bs</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="table-container">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <caption>
+            Lista de Compras
+          </caption>
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Celular</th>
+              <th scope="col">Dirección Envío</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(compras, index) in compra" :key="index">
+              <td>{{ index + 1 }}</td>
+              <td>{{ compras.usuario }}</td>
+              <td>{{ compras.celular }}</td>
+              <td>{{ compras.direccionEnvio }}</td>
+              <td>{{ compras.total }} bs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.table-container {
+  background: #7dbcc9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-block: 18px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.thead-light th {
+  background-color: #7dbcc9;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(240, 243, 243, 0.2);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(125, 188, 201, 0.1);
+}
+
+.caption {
+  color: white;
+}
+</style>

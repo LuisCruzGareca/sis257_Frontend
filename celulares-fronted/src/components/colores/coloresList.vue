@@ -9,7 +9,7 @@ const props = defineProps<{
 }>()
 
 const ENDPOINT = props.ENDPOINT_API ?? ''
-var colors = ref<Colores[]>([])
+const colors = ref<Colores[]>([])
 
 async function getColors() {
   colors.value = await http.get(`/colores`).then((response) => response.data)
@@ -20,8 +20,8 @@ function toEdit(id: number) {
 }
 
 async function toDelete(id: number) {
-  var r = confirm('¿Está seguro que se desea eliminar el color?')
-  if (r == true) {
+  const r = confirm('¿Está seguro que se desea eliminar el color?')
+  if (r) {
     await http.delete(`${ENDPOINT}/${id}`).then(() => getColors())
   }
 }
@@ -32,7 +32,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
@@ -40,46 +40,87 @@ onMounted(() => {
       </ol>
     </nav>
 
-    <div class="row">
-      <h2>Lista de Colores</h2>
-      <div class="col-12">
-        <RouterLink to="/colores/crear" class="btn btn-primary">
-          <i class="fas fa-plus"></i> Crear Nuevo
-        </RouterLink>
-      </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 style="background-color: #7dbcc9; color: white">Lista de Colores</h2>
+      <RouterLink to="/colores/crear" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Crear Nuevo
+      </RouterLink>
     </div>
 
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <caption>
-          Lista de Colores
-        </caption>
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">N°</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(colors, index) in colors.values()" :key="colors.id">
-            <td>{{ index + 1 }}</td>
-            <td>{{ colors.nombre }}</td>
-            <td>
-              <button class="btn btn-primary me-2" @click="toEdit(colors.id)">
-                Editar
-                <font-awesome-icon icon="fa-solid fa-edit" />
-              </button>
-              <button class="btn btn-danger" @click="toDelete(colors.id)">
-                Eliminar
-                <font-awesome-icon icon="fa-solid fa-trash" />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="table-container">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <caption>
+            Lista de Colores
+          </caption>
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(color, index) in colors" :key="color.id">
+              <td>{{ index + 1 }}</td>
+              <td>{{ color.nombre }}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-primary me-2" @click="toEdit(color.id)">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-sm btn-danger" @click="toDelete(color.id)">
+                    <i class="fas fa-trash"></i> Eliminar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.table-container {
+  background: #7dbcc9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-block: 18px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.thead-light th {
+  background-color: #7dbcc9;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(240, 243, 243, 0.2);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(125, 188, 201, 0.1);
+}
+.caption {
+  color: white;
+}
+.btn-group .btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn .fas {
+  margin-right: 5px;
+}
+.h2 {
+  color: white;
+  background-color: black;
+}
+</style>

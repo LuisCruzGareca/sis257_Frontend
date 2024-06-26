@@ -7,6 +7,7 @@ const axios = Axios.create({
 axios.interceptors.request.use((config) => {
   const authStore = useAuthStore()
   if (config.headers) {
+    //en cada peticion al servidor del nest le ponermos conent type a json y el token que nos ha dado previamente al loger el usuario para que asi el jwt del nes t sepa que usuario esta logeado
     config.headers['Content-type'] = 'application/json'
     config.headers['Authorization'] = 'Bearer ' + authStore.token
   }

@@ -9,8 +9,8 @@ const props = defineProps<{
 }>()
 
 const ENDPOINT = props.ENDPOINT_API ?? ''
-var celular = ref<Celulares[]>([])
-//
+const celular = ref<Celulares[]>([])
+
 async function getCelulares() {
   celular.value = await http.get('/celulares').then((response) => response.data)
 }
@@ -20,8 +20,8 @@ function toEdit(id: number) {
 }
 
 async function toDelete(id: number) {
-  var r = confirm('¿Está seguro que se desea eliminar el celulares?')
-  if (r == true) {
+  const r = confirm('¿Está seguro que desea eliminar el celular?')
+  if (r) {
     await http.delete(`${ENDPOINT}/${id}`).then(() => getCelulares())
   }
 }
@@ -36,7 +36,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
@@ -44,61 +44,107 @@ onMounted(() => {
       </ol>
     </nav>
 
-    <div class="row">
-      <h2>Lista de celulares</h2>
-      <div class="col-12">
-        <RouterLink to="/celulares/crear"
-          ><font-awesome-icon icon="fa-solid fa-plus" /> Crear Nuevo</RouterLink
-        >
-      </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 style="background-color: #7dbcc9; color: white">Lista de Celulares</h2>
+      <RouterLink to="/celulares/crear" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Crear Nuevo
+      </RouterLink>
     </div>
 
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">N°</th>
-            <th scope="col">nombre</th>
-            <th scope="col">descripcion</th>
-            <th scope="col">marca</th>
-            <th scope="col">modelo</th>
-            <th scope="col">stock</th>
-            <th scope="col">precio</th>
-            <th scope="col">color</th>
-            <th scope="col">categoria</th>
-            <th scope="col">accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(celular, index) in celular.values()" :key="celular.id">
-            <th scope="row">{{ index + 1 }}</th>
-            <td>{{ celular.nombre }}</td>
-            <td>{{ celular.descripcion }}</td>
-            <td>{{ celular.marca }}</td>
-            <td>{{ celular.modelo }}</td>
-            <td>{{ celular.stock }}</td>
-            <td>{{ celular.precio }}</td>
-            <td>{{ celular.color }}</td>
-            <td>{{ celular.categoria }}</td>
-            <td>
-              <button class="btn btn-link" @click="toEdit(celular.id)">
-                Editar
-                <font-awesome-icon icon="fa-solid fa-edit" /></button
-              ><br />
-              <button class="btn btn-link" @click="toDelete(celular.id)">
-                Eliminar
-                <font-awesome-icon icon="fa-solid fa-trash" />
-              </button>
-              <button class="btn btn-link" @click="toComprar(celular.id)">
-                Comprar
-                <font-awesome-icon icon="fa-solid fa-trash" />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="table-container">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <caption>
+            Lista de Celulares
+          </caption>
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Color</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(celular, index) in celular" :key="celular.id">
+              <td>{{ index + 1 }}</td>
+              <td>{{ celular.nombre }}</td>
+              <td>{{ celular.descripcion }}</td>
+              <td>{{ celular.marca }}</td>
+              <td>{{ celular.modelo }}</td>
+              <td>{{ celular.stock }}</td>
+              <td>{{ celular.precio }}</td>
+              <td>{{ celular.color }}</td>
+              <td>{{ celular.categoria }}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-primary me-2" @click="toEdit(celular.id)">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-sm btn-danger me-2" @click="toDelete(celular.id)">
+                    <i class="fas fa-trash"></i> Eliminar
+                  </button>
+                  <button class="btn btn-sm btn-success" @click="toComprar(celular.id)">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.table-container {
+  background: #7dbcc9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-block: 18px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.thead-light th {
+  background-color: #7dbcc9;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(240, 243, 243, 0.2);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(125, 188, 201, 0.1);
+}
+
+.caption {
+  color: white;
+}
+
+.btn-group .btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn .fas {
+  margin-right: 5px;
+}
+
+.h2 {
+  color: white;
+  background-color: black;
+}
+</style>

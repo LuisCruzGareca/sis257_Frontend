@@ -23,7 +23,7 @@ const useAuthStore = defineStore('auth', {
           this.token = response.data.access_token
 
           localStorage.setItem('user', this.user || '')
-          localStorage.setItem('token', this.token || '')
+          localStorage.setItem('token', this.token || '') //el token lo devuelve el jwt del nest y lo guardamos en el localstorage para meterselo a cada peticion al nest y que asi sepa que nos hemos logeado
 
           router.push('/celulares')
         })

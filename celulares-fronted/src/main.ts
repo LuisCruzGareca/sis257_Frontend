@@ -1,5 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './assets/main.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -20,4 +20,4 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.mount('#app')
 
-import 'bootstrap/dist/js/bootstrap.min.js'
+// import 'bootstrap/dist/js/bootstrap.min.js'

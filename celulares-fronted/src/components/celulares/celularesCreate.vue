@@ -65,88 +65,108 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
-        <li class="breadcrumb-item">
-          <RouterLink to="/celulares">Celulares</RouterLink>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Crear</li>
-      </ol>
-    </nav>
+    <div class="container mt-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
+          <li class="breadcrumb-item">
+            <RouterLink to="/celulares">Celulares</RouterLink>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Crear</li>
+        </ol>
+      </nav>
 
-    <div class="row">
-      <h2>Crear Nuevo Celular</h2>
-    </div>
+      <div class="row">
+        <h2>Crear Nuevo Celular</h2>
+      </div>
 
-    <div class="row">
-      <form @submit.prevent="crearCelular">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" v-model="nombre" placeholder="Nombre" required />
-          <label for="nombre">Nombre</label>
-        </div>
-        <div class="form-floating mb-3">
-          <textarea
-            type="text"
-            class="form-control"
-            v-model="descripcion"
-            placeholder="descripcion"
-            required
-          ></textarea>
-          <label for="descripcion">descripcion</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" v-model="marca" placeholder="marca" required />
-          <label for="marca">marca</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" v-model="modelo" placeholder="modelo" required />
-          <label for="modelo">modelo</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="number"
-            class="form-control"
-            v-model="precio"
-            placeholder="precio"
-            required
-          />
-          <label for="precio">precio</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="number" class="form-control" v-model="stock" placeholder="stock" required />
-          <label for="stock">stock</label>
-        </div>
-        <div class="form-floating mb-3">
-          <select v-model="categoria" required>
-            <option value="" selected>Selecciona una categoria</option>
-            <option
-              v-for="(categoria, index) in categorias.values()"
-              :value="categoria.id"
-              :key="index"
-            >
-              {{ categoria.nombre }}
-            </option>
-          </select>
-        </div>
-        <div class="form-floating mb-3">
-          <select v-model="color" required>
-            <option value="" selected>Selecciona un color</option>
-            <option v-for="(color, index) in colores.values()" :value="color.id" :key="index">
-              {{ color.nombre }}
-            </option>
-          </select>
-        </div>
+      <div class="row">
+        <form @submit.prevent="crearCelular">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              v-model="nombre"
+              placeholder="Nombre"
+              required
+            />
+            <label for="nombre">Nombre</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              type="text"
+              class="form-control"
+              v-model="descripcion"
+              placeholder="descripcion"
+              required
+            ></textarea>
+            <label for="descripcion">descripcion</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" v-model="marca" placeholder="marca" required />
+            <label for="marca">marca</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              v-model="modelo"
+              placeholder="modelo"
+              required
+            />
+            <label for="modelo">modelo</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              v-model="precio"
+              placeholder="precio"
+              required
+            />
+            <label for="precio">precio</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              v-model="stock"
+              placeholder="stock"
+              required
+            />
+            <label for="stock">stock</label>
+          </div>
+          <div class="form-floating mb-3">
+            <select v-model="categoria" required>
+              <option value="" selected>Selecciona una categoria</option>
+              <option
+                v-for="(categoria, index) in categorias.values()"
+                :value="categoria.id"
+                :key="index"
+              >
+                {{ categoria.nombre }}
+              </option>
+            </select>
+          </div>
+          <div class="form-floating mb-3">
+            <select v-model="color" required>
+              <option value="" selected>Selecciona un color</option>
+              <option v-for="(color, index) in colores.values()" :value="color.id" :key="index">
+                {{ color.nombre }}
+              </option>
+            </select>
+          </div>
 
-        <div class="text-center mt-3">
-          <button type="submit" class="btn btn-primary btn-lg">
-            <font-awesome-icon icon="fa-solid fa-save" /> Crear
-          </button>
-        </div>
-      </form>
-    </div>
-    <div class="text-left">
-      <button class="btn btn-link" @click="goBack">Volver</button>
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <font-awesome-icon icon="fa-solid fa-save" /> Crear
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="text-left">
+        <button class="btn btn-link" @click="goBack">Volver</button>
+      </div>
     </div>
   </div>
 </template>

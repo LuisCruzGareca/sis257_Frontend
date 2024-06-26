@@ -35,45 +35,47 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
-        <li class="breadcrumb-item">
-          <RouterLink to="/usuarios">Usuarios</RouterLink>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Editar</li>
-      </ol>
-    </nav>
+    <div class="container mt-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
+          <li class="breadcrumb-item">
+            <RouterLink to="/usuarios">Usuarios</RouterLink>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Editar</li>
+        </ol>
+      </nav>
 
-    <div class="row">
-      <h2>Editar Usuarios</h2>
-    </div>
+      <div class="row">
+        <h2>Editar Usuarios</h2>
+      </div>
 
-    <div class="row">
-      <form @submit.prevent="editarUsuarios">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" v-model="email" placeholder="Email" required />
-          <label for="email">Email</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control"
-            v-model="password"
-            placeholder="Password"
-            required
-          />
-          <label for="password">Password</label>
-        </div>
-        <div class="text-center mt-3">
-          <button type="submit" class="btn btn-primary btn-lg">
-            <font-awesome-icon icon="fa-solid fa-save" /> Guardar
-          </button>
-        </div>
-      </form>
-    </div>
-    <div class="text-left">
-      <button class="btn btn-link" @click="goBack">Volver</button>
+      <div class="row">
+        <form @submit.prevent="editarUsuarios">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" v-model="email" placeholder="Email" required />
+            <label for="email">Email</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              v-model="password"
+              placeholder="Password"
+              required
+            />
+            <label for="password">Password</label>
+          </div>
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <font-awesome-icon icon="fa-solid fa-save" /> Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="text-left">
+        <button class="btn btn-link" @click="goBack">Volver</button>
+      </div>
     </div>
   </div>
 </template>

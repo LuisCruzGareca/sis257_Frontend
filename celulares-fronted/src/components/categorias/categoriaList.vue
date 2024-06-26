@@ -9,9 +9,9 @@ const props = defineProps<{
 }>()
 
 const ENDPOINT = props.ENDPOINT_API ?? ''
-var categoria = ref<Categorias[]>([])
+const categoria = ref<Categorias[]>([])
 
-async function getCategoria() {
+async function getCategorias() {
   categoria.value = await http.get('/categorias').then((response) => response.data)
 }
 
@@ -20,65 +20,112 @@ function toEdit(id: number) {
 }
 
 async function toDelete(id: number) {
-  var r = confirm('¿Está seguro que se desea eliminar la categoria?')
-  if (r == true) {
-    await http.delete(`${ENDPOINT}/${id}`).then(() => getCategoria())
+  const r = confirm('¿Está seguro que se desea eliminar la categoría?')
+  if (r) {
+    await http.delete(`${ENDPOINT}/${id}`).then(() => getCategorias())
   }
 }
 
 onMounted(() => {
-  getCategoria()
+  getCategorias()
 })
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
-        <li class="breadcrumb-item active" aria-current="page">Categoria</li>
+        <li class="breadcrumb-item active" aria-current="page">Categorías</li>
       </ol>
     </nav>
 
-    <div class="row">
-      <h2>Lista de categoria</h2>
-      <div class="col-12">
-        <RouterLink to="/categorias/crear"
-          ><font-awesome-icon icon="fa-solid fa-plus" /> Crear Nuevo</RouterLink
-        >
-      </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 style="background-color: #7dbcc9; color: white">Lista de Categorías</h2>
+      <RouterLink to="/categorias/crear" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Crear Nuevo
+      </RouterLink>
     </div>
 
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">N°</th>
-            <th scope="col">descripcion</th>
-            <th scope="col">nombre</th>
-            <th scope="col">acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(categoria, index) in categoria.values()" :key="categoria.id">
-            <th scope="row">{{ index + 1 }}</th>
-            <td>{{ categoria.descripcion }}</td>
-            <td>{{ categoria.nombre }}</td>
-            <td>
-              <button class="btn btn-link" @click="toEdit(categoria.id)">
-                Editar
-                <font-awesome-icon icon="fa-solid fa-edit" /></button
-              ><br />
-              <button class="btn btn-link" @click="toDelete(categoria.id)">
-                Eliminar
-                <font-awesome-icon icon="fa-solid fa-trash" />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="table-container">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <caption>
+            Lista de Categorías
+          </caption>
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(categoria, index) in categoria" :key="categoria.id">
+              <td>{{ index + 1 }}</td>
+              <td>{{ categoria.descripcion }}</td>
+              <td>{{ categoria.nombre }}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-primary me-2" @click="toEdit(categoria.id)">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-sm btn-danger" @click="toDelete(categoria.id)">
+                    <i class="fas fa-trash"></i> Eliminar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.table-container {
+  background: #7dbcc9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-block: 18px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.thead-light th {
+  background-color: #7dbcc9;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(240, 243, 243, 0.2);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(125, 188, 201, 0.1);
+}
+
+.caption {
+  color: white;
+}
+
+.btn-group .btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn .fas {
+  margin-right: 5px;
+}
+
+.h2 {
+  color: white;
+  background-color: black;
+}
+</style>

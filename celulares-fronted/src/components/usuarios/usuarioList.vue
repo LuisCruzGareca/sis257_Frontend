@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Usuario } from '@/models/Usuario'
 import { onMounted, ref } from 'vue'
 import http from '@/plugins/axios'
+import type { Usuario } from '@/models/Usuario'
 import { router } from '@/router/router'
 
 const props = defineProps<{
@@ -9,7 +9,7 @@ const props = defineProps<{
 }>()
 
 const ENDPOINT = props.ENDPOINT_API ?? ''
-var usuarios = ref<Usuario[]>([])
+const usuarios = ref<Usuario[]>([])
 
 async function getUsuarios() {
   usuarios.value = await http.get('/usuarios').then((response) => response.data)
@@ -20,8 +20,8 @@ function toEdit(id: number) {
 }
 
 async function toDelete(id: number) {
-  var r = confirm('¿Está seguro que se desea eliminar el usuario?')
-  if (r == true) {
+  const r = confirm('¿Está seguro que se desea eliminar el usuario?')
+  if (r) {
     await http.delete(`${ENDPOINT}/${id}`).then(() => getUsuarios())
   }
 }
@@ -32,7 +32,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><RouterLink to="/">Inicio</RouterLink></li>
@@ -40,65 +40,83 @@ onMounted(() => {
       </ol>
     </nav>
 
-    <div class="row">
-      <h2>Lista de Usuarios</h2>
-      <div class="col-12">
-        <RouterLink to="/usuarios/crear"
-          ><font-awesome-icon icon="fa-solid fa-plus" /> Crear Nuevo</RouterLink
-        >
-      </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 style="background-color: #7dbcc9; color: white">Lista de Usuarios</h2>
+      <RouterLink to="/usuarios/crear" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Crear Nuevo
+      </RouterLink>
     </div>
 
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">N°</th>
-            <th scope="col">email</th>
-            <th scope="col">password</th>
-            <th scope="col">acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(usuario, index) in usuarios.values()" :key="usuario.id">
-            <th scope="row">{{ index + 1 }}</th>
-            <td>{{ usuario.email }}</td>
-            <td>{{ usuario.password }}</td>
-            <td>
-              <button class="btn btn-link" @click="toEdit(usuario.id)">
-                Editar
-                <font-awesome-icon icon="fa-solid fa-edit" /></button
-              ><br />
-              <button class="btn btn-link" @click="toDelete(usuario.id)">
-                Eliminar
-                <font-awesome-icon icon="fa-solid fa-trash" />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-
-        <!-- 
-
-         <tbody>
-          <tr v-for="(usuario, index) in usuarios.values()" :key="usuario.id">
-            <th scope="row">{{ index + 1 }}</th>
-            <td>{{ usuario.email }}</td>
-            <td>{{ usuario.password }}</td>
-            <td>
-              <button class="btn btn-link" @click="toEdit(usuario.id)">
-                Editar
-                <font-awesome-icon icon="fa-solid fa-edit" />
-              </button>
-              <button class="btn btn-link" @click="toDelete(usuario.id)">
-                Eliminar
-                <font-awesome-icon icon="fa-solid fa-trash" />
-              </button>
-            </td>
-          </tr>
-        </tbody> -->
-      </table>
+    <div class="table-container">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <caption>
+            Lista de Usuarios
+          </caption>
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Email</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(usuario, index) in usuarios" :key="usuario.id">
+              <td>{{ index + 1 }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-primary me-2" @click="toEdit(usuario.id)">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-sm btn-danger" @click="toDelete(usuario.id)">
+                    <i class="fas fa-trash"></i> Eliminar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.table-container {
+  background: #7dbcc9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-block: 18px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.thead-light th {
+  background-color: #7dbcc9;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(240, 243, 243, 0.2);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(125, 188, 201, 0.1);
+}
+.caption {
+  color: white;
+}
+.btn-group .btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn .fas {
+  margin-right: 5px;
+}
+</style>
