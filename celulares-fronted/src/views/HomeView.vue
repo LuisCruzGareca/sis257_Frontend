@@ -65,6 +65,294 @@ import video from '@/assets/video/1.mp4'
       </video>
     </div>
   </section>
+  <!-- iNFORMACION DE LA TIENDA Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px">
+          <div class="position-relative h-100">
+            <img
+              class="img-fluid position-absolute w-100 h-100"
+              src="@/assets/images/tienda.jpg"
+              alt=""
+              style="object-fit: cover"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+          <h6 class="section-title text-start text-primary pe-3">CELULARES APPLE</h6>
+          <h2 class="mb-4">TIENDA DE CELULARES</h2>
+          <p class="mb-4 text-light">
+            Celulares Apple es una tienda de tecnología fundada en 2018 por Marta López en Sucre,
+            Bolivia. Marta, experta en telecomunicaciones, creó la tienda para satisfacer la
+            creciente demanda de dispositivos móviles y servicios integrales en un mercado que
+            carecía de opciones personalizadas. Comenzando en un pequeño local, la tienda se destaco
+            desde el principio por su atención al cliente, brindando asesoramiento experto para
+            ayudar a los clientes a elegir dispositivos apple adecuados según sus necesidades y
+            presupuesto.
+          </p>
+          <p class="mb-4 text-light">
+            En Celulares Apple encontrarás una variedad de Iphones de última generación que combinan
+            rendimiento, estilo y funcionalidad. Desde los últimos modelos con cámaras de alta
+            resolución y pantallas envolventes incluyendo la tecnología 5G y capacidades de
+            inteligencia artificial, nuestros celulares están diseñados para satisfacer las demandas
+            de la vida moderna. Ya sea que busques un Iphone para trabajo, entretenimiento o
+            fotografía, en nuestra tienda encontrarás la opción perfecta para ti.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End -->
+  <!-- Informacion del iphone Start -->
+  <div class="container-xxl py-5 category">
+    <div class="container">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h3 class="section-title bg-dark text-center text-primary px-3">CELULARES APPLE</h3>
+        <h2 class="mb-5"></h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-lg-7 col-md-6">
+          <div class="row g-3">
+            <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+              <a class="position-relative d-block overflow-hidden" href="">
+                <img class="img-fluid" src="@/assets/images/parte1.jpg" alt="" />
+                <div
+                  class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
+                  style="margin: 1px"
+                >
+                  <h5 class="text-primary m-0">Celulares de Alta Gama</h5>
+                  <small class="text-primary"></small>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+              <a class="position-relative d-block overflow-hidden" href="">
+                <img class="img-fluid" src="@/assets/images/parte3.jpg" alt="" />
+                <div
+                  class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
+                  style="margin: 1px"
+                >
+                  <h5 class="text-primary m-0">Resistentes al Agua</h5>
+                  <small class="text-primary"></small>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+              <a class="position-relative d-block overflow-hidden" href="">
+                <img class="img-fluid" src="@/assets/images/parte5.png" alt="" />
+                <div
+                  class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
+                  style="margin: 1px"
+                >
+                  <h5 class="text-primary m-0">Ultima Generación</h5>
+                  <small class="text-primary"></small>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px">
+          <a class="position-relative d-block h-100 overflow-hidden" href="/celulares">
+            <img
+              class="img-fluid position-absolute w-100 h-100"
+              src="@/assets/images/parte4.jpg"
+              alt=""
+              style="object-fit: cover"
+            />
+            <div
+              class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
+              style="margin: 1px"
+            >
+              <h5 class="text-primary m-0">Camara Full HD</h5>
+              <small class="text-primary"></small>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end -->
+
+  <!-- Celulares Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="section-title bg-dark text-center text-primary px-3">MODELOS</h6>
+        <h2 class="mb-5">CELULARES IPHONES</h2>
+      </div>
+      <!-- Contenedor 1 -->
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="course-item bg-dark">
+            <div class="position-relative overflow-hidden">
+              <img class="img-fluid" src="@/assets/images/iphone10.jpg" alt="" />
+              <!-- <div class="comprar_container">
+                <RouterLink to="/compras/crear/21" style="color: #7dbcc9"> Comprar </RouterLink>
+              </div> -->
+              <div
+                class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"
+              >
+                <RouterLink to="/compras/crear/21" style="color: #7dbcc9"> Comprar </RouterLink>
+              </div>
+            </div>
+            <div class="text-center p-4 pb-0">
+              <h3 class="section-title text-center text-primary px-3">4.000 Bs</h3>
+              <h5 class="mb-4">IPHONE 10 PRO</h5>
+            </div>
+            <div class="d-flex border-top">
+              <small class="flex-fill text-center text-primary border-end py-2">CAMARA: 12MP</small>
+              <small class="flex-fill text-center text-primary border-end py-2">RAM: 4GB</small>
+              <small class="flex-fill text-center text-primary py-2">MEMORIA: 64GB</small>
+            </div>
+          </div>
+        </div>
+        <!-- Contenedor 2 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="course-item bg-dark">
+            <div class="position-relative overflow-hidden">
+              <img class="img-fluid" src="@/assets/images/iphone11.jpg" alt="" />
+              <div
+                class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"
+              >
+                <a
+                  href="/celulares"
+                  class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                  style="border-radius: 30px 30px 30px 30px"
+                  >Carrito</a
+                >
+              </div>
+            </div>
+            <div class="text-center p-4 pb-0">
+              <h3 class="section-title text-center text-primary px-3">6.000 Bs</h3>
+              <h5 class="mb-4">IPHONE 11 PRO</h5>
+            </div>
+            <div class="d-flex border-top">
+              <small class="flex-fill text-center text-primary border-end py-2">CAMARA: 12MP</small>
+              <small class="flex-fill text-center text-primary border-end py-2">RAM: 4GB</small>
+              <small class="flex-fill text-center text-primary py-2">MEMORIA: 128GB</small>
+            </div>
+          </div>
+        </div>
+        <!-- Contenedor 3 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="course-item bg-dark">
+            <div class="position-relative overflow-hidden">
+              <img class="img-fluid" src="@/assets/images/iphone12.jpg" alt="" />
+              <div
+                class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"
+              >
+                <a
+                  href="/celulares"
+                  class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                  style="border-radius: 30px 30px 30px 30px"
+                  >Carrito</a
+                >
+              </div>
+            </div>
+            <div class="text-center p-4 pb-0">
+              <h3 class="section-title text-center text-primary px-3">8.000 Bs</h3>
+              <h5 class="mb-4">IPHONE 12 PRO</h5>
+            </div>
+            <div class="d-flex border-top">
+              <small class="flex-fill text-center text-primary border-end py-2">CAMARA: 12MP</small>
+              <small class="flex-fill text-center text-primary border-end py-2">RAM: 6GB</small>
+              <small class="flex-fill text-center text-primary py-2">MEMORIA: 128GB</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- final Contenedor -->
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="section-title bg-white text-center text-primary px-3"></h6>
+      </div>
+      <!-- Contenedor 4 -->
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="course-item bg-dark">
+            <div class="position-relative overflow-hidden">
+              <img class="img-fluid" src="@/assets/images/iphone13.jpg" alt="" />
+              <div
+                class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"
+              >
+                <a
+                  href="/celulares"
+                  class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                  style="border-radius: 30px 30px 30px 30px"
+                  >Carrito</a
+                >
+              </div>
+            </div>
+            <div class="text-center p-4 pb-0">
+              <h3 class="section-title text-center text-primary px-3">10.000 Bs</h3>
+              <h5 class="mb-4">IPHONE 13 PRO</h5>
+            </div>
+            <div class="d-flex border-top">
+              <small class="flex-fill text-center text-primary border-end py-2">CAMARA: 12MP</small>
+              <small class="flex-fill text-center text-primary border-end py-2">RAM: 8GB</small>
+              <small class="flex-fill text-center text-primary py-2">MEMORIA: 256GB</small>
+            </div>
+          </div>
+        </div>
+        <!-- Contenedor 5 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="course-item bg-dark">
+            <div class="position-relative overflow-hidden">
+              <img class="img-fluid" src="@/assets/images/iphone14.jpg" alt="" />
+              <div
+                class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"
+              >
+                <a
+                  href="/celulares"
+                  class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                  style="border-radius: 30px 30px 30px 30px"
+                  >Carrito</a
+                >
+              </div>
+            </div>
+            <div class="text-center p-4 pb-0">
+              <h3 class="section-title text-center text-primary px-3">12.000 Bs</h3>
+              <h5 class="mb-4">IPHONE 14 PRO</h5>
+            </div>
+            <div class="d-flex border-top">
+              <small class="flex-fill text-center text-primary border-end py-2">CAMARA: 12MP</small>
+              <small class="flex-fill text-center text-primary border-end py-2">RAM: 8GB</small>
+              <small class="flex-fill text-center text-primary py-2">MEMORIA: 256GB</small>
+            </div>
+          </div>
+        </div>
+        <!-- Contenedor 6 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="course-item bg-dark">
+            <div class="position-relative overflow-hidden">
+              <img class="img-fluid" src="@/assets/images/iphone15.jpg" alt="" />
+              <div
+                class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"
+              >
+                <a
+                  href="/celulares"
+                  class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                  style="border-radius: 30px 30px 30px 30px"
+                  >Carrito</a
+                >
+              </div>
+            </div>
+            <div class="text-center p-4 pb-0">
+              <h3 class="section-title text-center text-primary px-3">15.000 Bs</h3>
+              <h5 class="mb-4">IPHONE 15 PRO</h5>
+            </div>
+            <div class="d-flex border-top">
+              <small class="flex-fill text-center text-primary border-end py-2">CAMARA: 12MP</small>
+              <small class="flex-fill text-center text-primary border-end py-2">RAM: 8GB</small>
+              <small class="flex-fill text-center text-primary py-2">MEMORIA: 256GB</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- final Contenedor -->
+    </div>
+  </div>
+  <!-- End -->
 
   <div class="letra">
     <h2>CELULARES</h2>
