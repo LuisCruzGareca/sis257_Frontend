@@ -3,7 +3,7 @@ import image2 from '@/assets/images/2.jpg'
 import image3 from '@/assets/images/3.jpg'
 import image4 from '@/assets/images/4.jpg'
 import image5 from '@/assets/images/5.jpg'
-import image6 from '@/assets/images/6.jpg'
+import image6 from '@/assets/images/9.jpg'
 import video from '@/assets/video/1.mp4'
 </script>
 
@@ -76,21 +76,27 @@ import video from '@/assets/video/1.mp4'
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
           <div class="image-wrap">
             <img :src="image2" alt="Descripción de la imagen" class="custom-image img-fluid" />
-            <div class="card-detail">
-              <h3 class="product">
-                <RouterLink to="/compras/crear/21" style="color: #7dbcc9">iPhone 10</RouterLink>
-              </h3>
+            <div class="comprar_container">
+              <RouterLink to="/compras/crear/21" style="color: #7dbcc9"> Comprar </RouterLink>
             </div>
+          </div>
+          <div class="card-detail">
+            <h3 class="product">
+              <label style="color: #7dbcc9">iPhone 10</label>
+            </h3>
           </div>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
           <div class="image-wrap">
             <img :src="image3" alt="Descripción de la imagen" class="custom-image img-fluid" />
-            <div class="card-detail">
-              <h3 class="product">
-                <a href="#" style="color: #7dbcc9">iPhone 11</a>
-              </h3>
+            <div class="comprar_container">
+              <label style="color: #7dbcc9"> Comprar </label>
             </div>
+          </div>
+          <div class="card-detail">
+            <h3 class="product">
+              <RouterLink to="/compras/crear/22" style="color: #7dbcc9">iPhone 11</RouterLink>
+            </h3>
           </div>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
@@ -251,13 +257,9 @@ import video from '@/assets/video/1.mp4'
 .image-wrap {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.image-wrap:hover {
-  transform: translateY(-5px);
 }
 
 .custom-image {
@@ -280,5 +282,36 @@ import video from '@/assets/video/1.mp4'
   .container-xxl {
     max-width: 90%;
   }
+}
+.card-detail {
+  background-color: rgba(25, 15, 15, 0.87);
+  padding: 8px;
+  height: 50px;
+  width: 100%;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.comprar_container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 150px;
+  opacity: 1;
+  transition: all 0.5s ease;
+  text-align: center;
+  background: #151414;
+  height: 40px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  line-height: 35px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-wrap:hover .comprar_container {
+  display: block;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 1;
 }
 </style>

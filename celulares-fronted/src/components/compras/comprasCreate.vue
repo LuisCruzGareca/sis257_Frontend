@@ -38,7 +38,7 @@ async function getCelular() {
     color = response.data.nombreColor
     categoria = response.data.nombreCategoria
     imageUrl = response.data.imageUrl // Asigna la URL de la imagen
-    getRandomImage()
+
     total.value = 'TOTAL: ' + precio + ' bs'
   })
 }
@@ -67,15 +67,6 @@ function goBack() {
   router.go(-1)
 }
 
-const imagesCount = 9
-let randomNum = 1
-let randomImageUrl = ''
-
-function getRandomImage() {
-  randomNum = Math.floor(Math.random() * imagesCount) + 1
-  randomImageUrl = `/images/${randomNum}.jpg`
-}
-
 onMounted(() => {
   getCelular()
 })
@@ -100,7 +91,7 @@ onMounted(() => {
     <div class="row">
       <div class="col-md-6">
         <img
-          :src="randomImageUrl"
+          :src="image9"
           alt="Imagen del celular"
           class="custom-image img-fluid"
           id="imagen_celu"
@@ -176,6 +167,7 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
 <style scoped>
 /* Estilo para la imagen */
 .img-fluid {
