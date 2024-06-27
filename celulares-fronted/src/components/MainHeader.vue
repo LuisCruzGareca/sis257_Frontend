@@ -66,7 +66,7 @@ const location = useRoute()
               <RouterLink to="/Compras" class="nav-link click-scroll">Compras</RouterLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link click-scroll">Hola {{ authStore.user }}</a>
+              <a class="nav-link click-scroll"> {{ authStore.user }}</a>
             </li>
           </slot>
         </ul>
@@ -74,7 +74,7 @@ const location = useRoute()
         <RouterLink v-if="!authStore.token" to="/login" class="btn custom-btn d-lg-block d-none"
           >Iniciar Sesión</RouterLink
         >
-        <a v-else @click="authStore.logout()" class="btn custom-btn d-lg-block d-none">Salir</a>
+        <a v-else @click="authStore.logout()" class="btn custom-btn d-lg-block d-none">SALIR</a>
       </div>
     </div>
   </nav>

@@ -76,7 +76,7 @@ onMounted(() => {
     </nav>
 
     <div class="d-flex justify-content-between align-items-center mb-3">
-      <h2 style="background-color: #7dbcc9; color: white">Crear Nuevo Celular</h2>
+      <h2 style="color: white">Crear Nuevo Celular</h2>
     </div>
 
     <div class="table-container">
